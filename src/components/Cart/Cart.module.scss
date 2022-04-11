@@ -1,0 +1,44 @@
+.cart {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 50px;
+  z-index: 1000;
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .7);
+    z-index: 1000;
+  }
+
+  &__button {
+    &_close {
+      width: 20px;
+      height: 20px;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      &:hover {
+        transform: scale(1.1);
+        transition: all 300ms ease;
+      }
+    }
+  }
+  &__text {
+    margin: 0.5rem 0;
+  }
+
+  &__total {
+    border-top: 1px solid rgba(50, 115, 220, 0.3);
+    padding: 10px 0;
+  }
+
+  &__list {
+    list-style: none;
+  }
+}

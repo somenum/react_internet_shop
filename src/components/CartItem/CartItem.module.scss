@@ -1,0 +1,17 @@
+.cartItem {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+
+  &__image {
+    width: 100px;
+    margin-right: 15px;
+  }
+
+  &__button {
+    color: red;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+}
