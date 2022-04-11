@@ -7,7 +7,6 @@ import styles from './Cart.module.scss';
 import {selectGoods} from "../../app/goodsSlice";
 
 const Cart = ({open, onClose}) => {
-    const goods = useSelector(selectGoods);
     const cart = useSelector(selectCart);
 
     const total = cart.reduce((acc, item) => acc + (item.price), 0)
