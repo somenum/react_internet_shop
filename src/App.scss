@@ -1,6 +1,12 @@
 @import './_helpers/mixins';
 .App {
   text-align: center;
+
+  @include themed() {
+    color: t('text');
+    background: t('bg');
+    fill: t('fill')
+  }
 }
 
 .App-logo {
@@ -25,15 +31,6 @@
 
 .App-link {
   color: rgb(112, 76, 182);
-}
-
-.myClass {
-  font-family: sans-serif;
-
-  @include themed() {
-    color: t('text');
-    background: t('bg');
-  }
 }
 
 @keyframes App-logo-float {

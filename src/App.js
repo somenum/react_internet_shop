@@ -7,11 +7,9 @@ import ThemeProvider from "./theme/ThemeProvider";
 function App() {
     return (
         <ThemeProvider>
-            <div className="App myClass">
-
+            <div className="App">
                 <Header/>
                 <Goods/>
-
             </div>
         </ThemeProvider>
     );

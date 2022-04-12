@@ -4,9 +4,13 @@ $themes: (
         light: (
                 bg: white,
                 text: $brand-dark,
+                fill: $brand-dark,
+                box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.2),
         ),
         dark: (
                 bg: $brand-dark,
                 text: white,
+                fill: white,
+                box-shadow: 2px 2px 10px 1px rgba(255,255,255, 0.5)
         ),
 );
