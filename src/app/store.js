@@ -4,12 +4,16 @@ import { persistReducer } from 'redux-persist';
 
 import goodsReducer from './goodsSlice';
 import cartReducer from './cartSlice';
+import authReducer from './authSlice';
+import messageReducer from './messageSlice';
 import {FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE} from "redux-persist/es/constants";
 
 
 const reducers = combineReducers({
   goods : goodsReducer,
-  cart : cartReducer
+  cart : cartReducer,
+  auth: authReducer,
+  message: messageReducer
 })
 
 const persistConfig = {
