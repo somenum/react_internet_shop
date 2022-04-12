@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './CartItem.module.scss';
 import { useDispatch} from 'react-redux';
 import {removeFromCart} from '../../app/cartSlice';
+import TrashIcon from '../Icons/TrashIcon';
 
 const CartItem = ({item}) => {
     const dispatch = useDispatch();
@@ -12,18 +13,20 @@ const CartItem = ({item}) => {
 
     return (
         <div className={styles.cartItem} key={`cart item ${item.name}`}>
-            <img src={item.imagePath} alt={item.name} className={styles.cartItem__image}/>
-            <div>
-                <div>
+            <div className={styles.cartItem__content}>
+                <img src={item.imagePath} alt={item.name} className={styles.cartItem__image}/>
+                <div className={styles.cartItem__text}>
                     {item.name}
-                    <button
-                        className={styles.cartItem__button}
-                        onClick={() => removeHandler(item)}
-                    >
-                        X
-                    </button>
+                    <div className={styles.cartItem__text_price}>{`$${item.price.toLocaleString()}`}</div>
                 </div>
-                <div>{`$${item.price.toLocaleString()}`}</div>
+            </div>
+            <div>
+                <button
+                    className={styles.cartItem__button}
+                    onClick={() => removeHandler(item)}
+                >
+                    <TrashIcon className={styles.cartItem__button_icon}/>
+                </button>
             </div>
         </div>
     )

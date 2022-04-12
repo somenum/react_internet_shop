@@ -1,6 +1,9 @@
+@import '../../_helpers/variables';
+
 .cartItem {
     display: flex;
     align-items: center;
+  justify-content: space-between;
     margin-bottom: 20px;
 
   &__image {
@@ -8,10 +11,31 @@
     margin-right: 15px;
   }
 
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    &_price {
+      font-weight: bold;
+    }
+  }
+
   &__button {
-    color: red;
+    height: 30px;
+    width: 30px;
     background: transparent;
     border: none;
     cursor: pointer;
+    &_icon {
+      fill: $brand-dark;
+      height: 30px;
+      width: 30px;
+
+    }
   }
 }

@@ -4,9 +4,14 @@ import logoImage from '../../assets/images/logo.svg'
 import CartIcon from '../Icons/CartIcon';
 import UserIcon from '../Icons/UserIcon';
 import Cart from '../Cart/Cart';
+import {useSelector} from 'react-redux';
+import {selectCart} from '../../app/cartSlice';
+import ThemeSetter from '../../theme/ThemeSetter';
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const cart = useSelector(selectCart);
+
     return (
         <div className={styles.header}>
             <a className={styles.header__logo} href="/">
@@ -16,7 +21,7 @@ const Header = () => {
 
             <ul className={styles.header__list}>
                 <li className={styles.header__list_item}>
-
+                    <ThemeSetter/>
                 </li>
                 <li className={styles.header__list_item}>
                     <button className={styles.header__button}>
@@ -26,7 +31,7 @@ const Header = () => {
                 <li className={styles.header__list_item}>
                     <button className={styles.header__button} onClick={() => setIsOpen(true)}>
                         <CartIcon className={styles.header__button_icon}/>
-                        <div className={styles.header__button_count}>0</div>
+                        <div className={styles.header__button_count}>{cart.length}</div>
                     </button>
                 </li>
             </ul>

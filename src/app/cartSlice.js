@@ -16,11 +16,9 @@ export const cartSlice = createSlice({
                 const tempGood = {...data.payload, cartQuantity : 1};
                 state.cartItems.push(tempGood);
             }
-            console.log(data)
         },
         removeFromCart : (state, data) => {
-            const newCartItems = state.cartItems.filter(item => item._id !== data.payload._id);
-            state.cartItems = newCartItems;
+            state.cartItems = state.cartItems.filter(item => item._id !== data.payload._id);
         }
     }
 })

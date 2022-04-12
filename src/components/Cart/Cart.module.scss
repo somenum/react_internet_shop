@@ -1,11 +1,23 @@
+@import '../../_helpers/variables';
+@import '../../_helpers/mixins';
+
 .cart {
   position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   top: 50%;
   left: 50%;
+  max-height: 100%;
   transform: translate(-50%, -50%);
   background-color: white;
-  padding: 50px;
+  padding: 30px;
   z-index: 1000;
+  box-sizing: border-box;
+  border-radius: 5px;
+  @include for-size(desktop-up) {
+    min-width: 800px;
+}
   &__overlay {
     position: fixed;
     top: 0;
@@ -16,10 +28,15 @@
     z-index: 1000;
   }
 
+  &__header {
+    display: flex;
+    justify-content: flex-end;
+  }
+
   &__button {
     &_close {
-      width: 20px;
-      height: 20px;
+      width: 30px;
+      height: 30px;
       background-color: transparent;
       border: none;
       cursor: pointer;
@@ -27,6 +44,11 @@
         transform: scale(1.1);
         transition: all 300ms ease;
       }
+    }
+    &_icon {
+      width: 30px;
+      height: 30px;
+      fill: $brand-dark;
     }
   }
   &__text {
@@ -40,5 +62,17 @@
 
   &__list {
     list-style: none;
+    padding: 0;
+  }
+
+  &__empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    &_image {
+      width: 300px;
+      height: 300px;
+    }
   }
 }
