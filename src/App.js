@@ -5,14 +5,16 @@ import Goods from "./components/Goods/Goods";
 import ThemeProvider from "./theme/ThemeProvider";
 
 function App() {
-  return (
-    <div className="App myClass">
+    return (
         <ThemeProvider>
-            <Header />
-            <Goods />
+            <div className="App myClass">
+
+                <Header/>
+                <Goods/>
+
+            </div>
         </ThemeProvider>
-    </div>
-  );
+    );
 }
 
 export default App;
