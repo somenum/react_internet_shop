@@ -1,6 +1,6 @@
 import React from 'react';
 import {useSelector} from "react-redux";
-import {selectGoods} from "../../app/goodsSlice";
+import {selectGoods} from "../../app/slices/goodsSlice";
 import styles from './Goods.module.scss';
 import GoodItem from "../GoodItem/GoodItem";
 

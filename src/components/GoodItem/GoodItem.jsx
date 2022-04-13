@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './GoodItem.module.scss'
 import CartIcon from '../Icons/CartIcon';
 import {useDispatch} from 'react-redux';
-import {addToCart} from "../../app/cartSlice";
+import {addToCart} from "../../app/slices/cartSlice";
 
 const GoodItem = ({good}) => {
 

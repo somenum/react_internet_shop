@@ -1,16 +1,19 @@
 import React from 'react';
 import './App.scss';
-import Header from './components/Header/Header'
-import Goods from "./components/Goods/Goods";
-import ThemeProvider from "./theme/ThemeProvider";
+import { Route, Routes } from 'react-router-dom';
+import ThemeProvider from './theme/ThemeProvider';
+import HomePage from './pages/HomePage';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
 
 function App() {
     return (
         <ThemeProvider>
-            <div className="App">
-                <Header/>
-                <Goods/>
-            </div>
+            <Routes>
+                <Route exact path='/' element={<HomePage />}/>
+                <Route exact path='/login' element={<LoginPage />}/>
+                <Route exact path='/register' element={<RegisterPage />}/>
+            </Routes>
         </ThemeProvider>
     );
 }

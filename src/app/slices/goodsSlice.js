@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import goodsArr from '../data/goods.json';
+import goodsArr from '../../data/goods.json';
 
 export const goodsSlice = createSlice({
     name: 'goods',

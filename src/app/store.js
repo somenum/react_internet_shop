@@ -2,18 +2,15 @@ import {combineReducers, configureStore, getDefaultMiddleware} from '@reduxjs/to
 import storage from 'redux-persist/lib/storage';
 import { persistReducer } from 'redux-persist';
 
-import goodsReducer from './goodsSlice';
-import cartReducer from './cartSlice';
-import authReducer from './authSlice';
-import messageReducer from './messageSlice';
+import goodsReducer from './slices/goodsSlice';
+import cartReducer from './slices/cartSlice';
+import userReducer from './slices/userSlice';
 import {FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE} from "redux-persist/es/constants";
-
 
 const reducers = combineReducers({
   goods : goodsReducer,
   cart : cartReducer,
-  auth: authReducer,
-  message: messageReducer
+  user: userReducer
 })
 
 const persistConfig = {

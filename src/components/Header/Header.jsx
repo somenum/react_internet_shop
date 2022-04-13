@@ -5,12 +5,13 @@ import CartIcon from '../Icons/CartIcon';
 import UserIcon from '../Icons/UserIcon';
 import Cart from '../Cart/Cart';
 import {useSelector} from 'react-redux';
-import {selectCart} from '../../app/cartSlice';
+import {selectCart} from '../../app/slices/cartSlice';
 import ThemeSetter from '../../theme/ThemeSetter';
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
     const cart = useSelector(selectCart);
+    console.log(cart);
 
     return (
         <div className={styles.header}>

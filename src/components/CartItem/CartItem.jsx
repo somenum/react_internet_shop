@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './CartItem.module.scss';
 import { useDispatch} from 'react-redux';
-import {removeFromCart} from '../../app/cartSlice';
+import {removeFromCart} from '../../app/slices/cartSlice';
 import TrashIcon from '../Icons/TrashIcon';
 
 const CartItem = ({item}) => {
