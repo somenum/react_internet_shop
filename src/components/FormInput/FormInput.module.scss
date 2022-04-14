@@ -44,7 +44,7 @@ $color-green: #8fffab;
     margin-top: 0.5rem;
 
     &:hover {
-      background: rgba($brand-grey, 0.8);
+      background: $brand-hover;
     }
   }
 

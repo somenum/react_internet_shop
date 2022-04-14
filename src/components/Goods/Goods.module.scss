@@ -1,6 +1,23 @@
+@import '../../_helpers/mixins';
 .goods {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
+  justify-content: center;
   margin-top: 40px;
+  @include for-size(tablet-landscape-up) {
+
+  }
+
+  &__button {
+    padding: 10px 20px;
+    background-color: $brand-background;
+    border: none;
+    border-radius: 5px;
+    color: $brand-dark;
+    margin-top: 20px;
+    cursor: pointer;
+    &:hover {
+      background-color: $brand-hover;
+    }
+  }
 }
