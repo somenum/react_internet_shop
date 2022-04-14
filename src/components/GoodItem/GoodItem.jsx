@@ -2,9 +2,13 @@ import React from 'react';
 import styles from './GoodItem.module.scss'
 import CartIcon from '../Icons/CartIcon';
 import {useDispatch} from 'react-redux';
-import {addToCart} from "../../app/slices/cartSlice";
+import {addToCart} from '../../app/slices/cartSlice';
+import {useAuth} from '../../hooks/useAuth';
+import {useNavigate} from 'react-router-dom';
 
 const GoodItem = ({good}) => {
+    const {isAuth} = useAuth();
+    const navigate = useNavigate()
 
     const dispatch = useDispatch()
 
@@ -20,9 +24,9 @@ const GoodItem = ({good}) => {
                 <div className={styles.goodItem__text}>
                     ${good.price}
                 </div>
-                <button className={styles.goodItem__button} onClick={() => addToCartHandler(good)}>
+                <button className={styles.goodItem__button}
+                        onClick={isAuth ? () => addToCartHandler(good): () => navigate('/Login')} >
                     {
-
                         <CartIcon className={styles.goodItem__button_image}/>
                     }
 

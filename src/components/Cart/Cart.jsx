@@ -8,9 +8,9 @@ import CloseIcon from '../Icons/CloseIcon';
 import CartImg from '../../assets/images/shopping-bag.png';
 
 const Cart = ({open, onClose}) => {
-    const cart = useSelector(selectCart);
+    const carts = useSelector(selectCart);
 
-    const total = cart.reduce((acc, item) => acc + (item.price), 0)
+    const total = carts.reduce((acc, item) => acc + (item.price), 0)
     if(!open) return null;
 
     return ReactDOM.createPortal(
@@ -26,8 +26,8 @@ const Cart = ({open, onClose}) => {
                     </button>
                 </div>
                 <ul className={styles.cart__list}>
-                    {cart.length ?
-                        cart.map(item => (
+                    {carts.length ?
+                        carts.map(item => (
                             <li key={item._id} className={styles.cart__list_item}>
                                 <CartItem item={item} />
                             </li>

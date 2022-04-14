@@ -8,22 +8,15 @@ import userReducer from './slices/userSlice';
 import {FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE} from "redux-persist/es/constants";
 
 const reducers = combineReducers({
-  goods : goodsReducer,
-  cart : cartReducer,
-  user: userReducer
+  user: userReducer,
+  goods: goodsReducer,
+  cart: cartReducer,
 })
 
 const persistConfig = {
   key: 'root',
   version: 1,
   storage,
-  whiteList:[
-    'userLogin',
-    'cart',
-    'checkout',
-    'orderAfterCheckout',
-    'currency',
-  ],
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);

@@ -1,17 +1,28 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './Header.module.scss';
 import logoImage from '../../assets/images/logo.svg'
 import CartIcon from '../Icons/CartIcon';
-import UserIcon from '../Icons/UserIcon';
+import LogOutIcon from '../Icons/LogOutIcon';
 import Cart from '../Cart/Cart';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {selectCart} from '../../app/slices/cartSlice';
 import ThemeSetter from '../../theme/ThemeSetter';
+import {removeUser} from '../../app/slices/userSlice';
+import {useAuth} from "../../hooks/useAuth";
+import {useNavigate} from "react-router-dom";
+import UserIcon from "../Icons/UserIcon";
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const cart = useSelector(selectCart);
-    console.log(cart);
+    const carts = useSelector(selectCart);
+    const dispatch = useDispatch();
+    const {isAuth} = useAuth();
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        if (isOpen) document.body.style.overflow = 'hidden';
+        else document.body.style.overflow = 'visible';
+    }, [isOpen]);
 
     return (
         <div className={styles.header}>
@@ -25,14 +36,22 @@ const Header = () => {
                     <ThemeSetter/>
                 </li>
                 <li className={styles.header__list_item}>
-                    <button className={styles.header__button}>
-                        <UserIcon className={styles.header__button_icon}/>
+                    <button
+                        className={styles.header__button}
+                        onClick={isAuth ? () => dispatch(removeUser()) : () => navigate('/Login')}
+                            >
+                        {isAuth ?
+                            <LogOutIcon className={styles.header__button_icon}/>
+                            :
+                            <UserIcon className={styles.header__button_icon}/>
+                        }
+
                     </button>
                 </li>
                 <li className={styles.header__list_item}>
                     <button className={styles.header__button} onClick={() => setIsOpen(true)}>
                         <CartIcon className={styles.header__button_icon}/>
-                        <div className={styles.header__button_count}>{cart.length}</div>
+                        <div className={styles.header__button_count}>{carts.length}</div>
                     </button>
                 </li>
             </ul>

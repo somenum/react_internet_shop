@@ -9,15 +9,18 @@
   top: 50%;
   left: 50%;
   max-height: 100%;
+  min-width: 100%;
   transform: translate(-50%, -50%);
   background-color: white;
   padding: 30px;
   z-index: 1000;
   box-sizing: border-box;
   border-radius: 5px;
-  @include for-size(desktop-up) {
+  overflow-y: auto;
+  @include for-size(tablet-landscape-up) {
     min-width: 800px;
-}
+  }
+
   &__overlay {
     position: fixed;
     top: 0;
@@ -71,8 +74,12 @@
     align-items: center;
     flex-direction: column;
     &_image {
-      width: 300px;
-      height: 300px;
+      width: 200px;
+      height: 200px;
+      @include for-size(tablet-portrait-up) {
+        width: 300px;
+        height: 300px;
+      }
     }
   }
 }
