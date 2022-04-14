@@ -16,13 +16,19 @@ const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
     const carts = useSelector(selectCart);
     const dispatch = useDispatch();
-    const {isAuth} = useAuth();
+    const {isAuth, email } = useAuth();
     const navigate = useNavigate()
 
     useEffect(() => {
         if (isOpen) document.body.style.overflow = 'hidden';
         else document.body.style.overflow = 'visible';
     }, [isOpen]);
+
+    const logOutHandler = () => {
+        if(window.confirm(`Do you really want to log out from ${email}`)) {
+            dispatch(removeUser())
+        }
+    }
 
     return (
         <div className={styles.header}>
@@ -38,7 +44,7 @@ const Header = () => {
                 <li className={styles.header__list_item}>
                     <button
                         className={styles.header__button}
-                        onClick={isAuth ? () => dispatch(removeUser()) : () => navigate('/Login')}
+                        onClick={isAuth ? logOutHandler : () => navigate('/Login')}
                             >
                         {isAuth ?
                             <LogOutIcon className={styles.header__button_icon}/>

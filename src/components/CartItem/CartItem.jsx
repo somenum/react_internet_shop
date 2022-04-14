@@ -8,7 +8,9 @@ const CartItem = ({item}) => {
     const dispatch = useDispatch();
 
     const removeHandler = (item) => {
-        dispatch(removeFromCart(item))
+        if(window.confirm(`Do you really want to delete ${item.name} from cart?`)) {
+            dispatch(removeFromCart(item))
+        }
     }
 
     return (

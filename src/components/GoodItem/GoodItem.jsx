@@ -14,6 +14,7 @@ const GoodItem = ({good}) => {
 
     const addToCartHandler = (good) => {
         dispatch(addToCart(good))
+        alert(`The ${good.name} was added to cart`)
     }
 
     return (
