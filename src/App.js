@@ -2,9 +2,9 @@ import React from 'react';
 import './App.scss';
 import { Route, Routes } from 'react-router-dom';
 import ThemeProvider from './theme/ThemeProvider';
-import HomePage from './pages/HomePage';
-import LoginPage from './pages/LoginPage';
-import RegisterPage from './pages/RegisterPage';
+import HomePage from './pages/HomePage/HomePage';
+import LoginPage from './pages/LoginPage/LoginPage';
+import RegisterPage from './pages/RegiaterPage/RegisterPage';
 
 function App() {
     return (

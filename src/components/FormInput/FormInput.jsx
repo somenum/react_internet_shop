@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styles from './FormInput.module.scss';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -10,46 +10,41 @@ const schema = yup.object().shape({
 })
 
 const FormInput = ({title, handleClick}) => {
-    const [email, setEmail] = useState('');
-    const [pass, setPass] = useState('')
 
     const { register, handleSubmit, formState:{ errors } } = useForm({
         resolver: yupResolver(schema)
     });
 
     const submitForm = (data) => {
-        console.log(data);
+        handleClick(data.email, data.password);
     }
 
     return (
-        // <div>
-        //     <input
-        //         type="email"
-        //         value={email}
-        //         onChange={(e) => setEmail(e.target.value)}
-        //         placeholder="email"
-        //     />
-        //     <input
-        //         type="password"
-        //         value={pass}
-        //         onChange={(e) => setPass(e.target.value)}
-        //         placeholder="password"
-        //     />
-        //     <button
-        //         onClick={() => handleClick(email, pass)}
-        //     >
-        //         {title}
-        //     </button>
-        // </div>
-        <div>
-            <form onSubmit={handleSubmit(submitForm)}>
-                <input type="email" name="email" placeholder="email" {...register("email")}/>
-                <span>{errors.email?.message}</span>
-                <input type="password" name="password" placeholder="password" {...register("password")} />
-                <span>{errors.password?.message}</span>
-                <input type="submit" placeholder={title}/>
+        <>
+            <form onSubmit={handleSubmit(submitForm)} className={styles.form}>
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="email"
+                    {...register("email")}
+                    className={errors.email && styles.form__inputError }
+                />
+                <span className={styles.form__error}>{errors.email?.message}</span>
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="password"
+                    {...register("password")}
+                    className={errors.password && styles.form__inputError}
+                />
+                <span className={styles.form__error}>{errors.password?.message}</span>
+                <input
+                    type="submit"
+                    placeholder={title}
+                    className={styles.form__button}
+                />
             </form>
-        </div>
+        </>
     )
 }
 

@@ -1,10 +1,10 @@
 import React from 'react';
 import {Navigate} from 'react-router-dom';
-import {useAuth} from '../hooks/useAuth'
-import Header from '../components/Header/Header';
-import Goods from '../components/Goods/Goods';
+import {useAuth} from '../../hooks/useAuth'
+import Header from '../../components/Header/Header';
+import Goods from '../../components/Goods/Goods';
 import {useDispatch} from 'react-redux';
-import {removeUser} from '../app/slices/userSlice';
+import {removeUser} from '../../app/slices/userSlice';
 
 const HomePage = () => {
     const {isAuth, email} = useAuth();
