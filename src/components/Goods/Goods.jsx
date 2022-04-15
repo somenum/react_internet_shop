@@ -16,10 +16,12 @@ const Goods = () => {
   };
 
   return (
-    <div className={styles.goods}>
-      {slice.map((good) => (
-        <GoodItem good={good} key={good.id} />
-      ))}
+    <div className={styles.goods__container}>
+      <div className={styles.goods}>
+        {slice.map((good) => (
+          <GoodItem good={good} key={good.id} />
+        ))}
+      </div>
       <Button
         onClick={() => loadMore()}
         className={styles.goods__button}
