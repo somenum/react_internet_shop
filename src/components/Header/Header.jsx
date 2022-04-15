@@ -6,7 +6,7 @@ import logoImage from "../../assets/images/logo.svg";
 import CartIcon from "../Icons/CartIcon";
 import LogOutIcon from "../Icons/LogOutIcon";
 import Cart from "../Cart/Cart";
-import { selectCart } from "../../app/slices/cartSlice";
+import { removeAll, selectCart } from "../../app/slices/cartSlice";
 import { removeUser } from "../../app/slices/userSlice";
 import { useAuth } from "../../hooks/useAuth";
 import UserIcon from "../Icons/UserIcon";
@@ -29,6 +29,12 @@ const Header = () => {
     } else {
       setTheme("light");
     }
+  };
+
+  const handleBuy = () => {
+    dispatch(removeAll());
+    // eslint-disable-next-line no-alert
+    alert("Thanks for you order");
   };
 
   useEffect(() => {
@@ -91,7 +97,11 @@ const Header = () => {
           </Button>
         </li>
       </ul>
-      <Cart open={isOpen} onClose={() => setIsOpen(false)} />
+      <Cart
+        open={isOpen}
+        onClose={() => setIsOpen(false)}
+        onClick={handleBuy}
+      />
     </div>
   );
 };

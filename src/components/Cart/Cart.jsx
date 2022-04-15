@@ -9,10 +9,9 @@ import CartImg from "../../assets/images/empty-box.png";
 import Button from "../Button/Button";
 import ThemeProvider from "../../theme/ThemeProvider";
 
-const Cart = ({ open, onClose }) => {
+const Cart = ({ open, onClose, onClick }) => {
   const carts = useSelector(selectCart);
 
-  const handleBuy = () => {};
   const total = carts.reduce((acc, item) => acc + item.price, 0);
   if (!open) return null;
 
@@ -54,7 +53,7 @@ const Cart = ({ open, onClose }) => {
             </span>
             <Button
               className={styles.cart__total_button}
-              onClick={handleBuy}
+              onClick={() => onClick}
               buttonStyle="primary"
             >
               Оформити
