@@ -23,7 +23,7 @@ const CartItem = ({ item }) => {
           className={styles.cartItem__image}
         />
         <div className={styles.cartItem__text}>
-          {item.name}
+          <div>{item.name}</div>
           <div
             className={styles.cartItem__text_price}
           >{`$${item.price.toLocaleString()}`}</div>

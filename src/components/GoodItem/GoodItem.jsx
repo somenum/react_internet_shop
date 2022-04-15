@@ -8,7 +8,7 @@ import { useAuth } from "../../hooks/useAuth";
 import Button from "../Button/Button";
 import styles from "./GoodItem.module.scss";
 
-const GoodItem = ({ good, key }) => {
+const GoodItem = ({ good }) => {
   const { isAuth } = useAuth();
   const navigate = useNavigate();
 
@@ -21,7 +21,7 @@ const GoodItem = ({ good, key }) => {
   };
 
   return (
-    <div className={styles.goodItem} key={key}>
+    <div className={styles.goodItem} key={good.id}>
       <img
         className={styles.goodItem__image}
         src={good.imagePath}
