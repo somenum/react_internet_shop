@@ -4,7 +4,7 @@
 
   @include themed() {
     color: t('text');
-    background: t('bg');
+    background-color: t('bg');
     fill: t('fill')
   }
 }

@@ -1,40 +1,48 @@
-import React from 'react';
-import styles from './GoodItem.module.scss'
-import CartIcon from '../Icons/CartIcon';
-import {useDispatch} from 'react-redux';
-import {addToCart} from '../../app/slices/cartSlice';
-import {useAuth} from '../../hooks/useAuth';
-import {useNavigate} from 'react-router-dom';
+import React from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import CartIcon from "../Icons/CartIcon";
+import { addToCart } from "../../app/slices/cartSlice";
+import { useAuth } from "../../hooks/useAuth";
 
-const GoodItem = ({good}) => {
-    const {isAuth} = useAuth();
-    const navigate = useNavigate()
+import Button from "../Button/Button";
+import styles from "./GoodItem.module.scss";
 
-    const dispatch = useDispatch()
+const GoodItem = ({ good, key }) => {
+  const { isAuth } = useAuth();
+  const navigate = useNavigate();
 
-    const addToCartHandler = (good) => {
-        dispatch(addToCart(good))
-        alert(`The ${good.name} was added to cart`)
-    }
+  const dispatch = useDispatch();
 
-    return (
-        <div className={styles.goodItem}>
-            <img className={styles.goodItem__image} src={good.imagePath} alt={good.name}/>
-            <div className={styles.goodItem__title}>{good.name}</div>
-            <div className={styles.goodItem__footer}>
-                <div className={styles.goodItem__text}>
-                    ${good.price}
-                </div>
-                <button className={styles.goodItem__button}
-                        onClick={isAuth ? () => addToCartHandler(good): () => navigate('/Login')} >
-                    {
-                        <CartIcon className={styles.goodItem__button_image}/>
-                    }
+  const addToCartHandler = (item) => {
+    dispatch(addToCart(item));
+    // eslint-disable-next-line no-alert
+    alert(`The ${item.name} was added to cart`);
+  };
 
-                </button>
-            </div>
-        </div>
-    )
-}
+  return (
+    <div className={styles.goodItem} key={key}>
+      <img
+        className={styles.goodItem__image}
+        src={good.imagePath}
+        alt={good.name}
+      />
+      <div className={styles.goodItem__title}>{good.name}</div>
+      <div className={styles.goodItem__footer}>
+        <div className={styles.goodItem__text}>${good.price}</div>
+        <Button
+          className={styles.goodItem__button}
+          onClick={
+            isAuth ? () => addToCartHandler(good) : () => navigate("/Login")
+          }
+          type="button"
+          buttonStyle="transparent"
+        >
+          <CartIcon className={styles.goodItem__button_image} />
+        </Button>
+      </div>
+    </div>
+  );
+};
 
 export default GoodItem;

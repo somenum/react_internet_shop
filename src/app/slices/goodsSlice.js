@@ -1,12 +1,12 @@
-import {createSlice} from '@reduxjs/toolkit';
-import goodsArr from '../../data/goods.json';
+import { createSlice } from "@reduxjs/toolkit";
+import goodsArr from "../../data/goods.json";
 
 export const goodsSlice = createSlice({
-    name: 'goods',
-    initialState: {
-        goods : goodsArr
-    },
-})
+  name: "goods",
+  initialState: {
+    goods: goodsArr,
+  },
+});
 
 export const {} = goodsSlice.actions;
 export const selectGoods = (state) => state.goods.goods;

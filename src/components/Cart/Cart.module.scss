@@ -37,21 +37,13 @@
   }
 
   &__button {
-    &_close {
+    &_icon {
       width: 30px;
       height: 30px;
-      background-color: transparent;
-      border: none;
-      cursor: pointer;
       &:hover {
         transform: scale(1.1);
         transition: all 300ms ease;
       }
-    }
-    &_icon {
-      width: 30px;
-      height: 30px;
-      fill: $brand-dark;
     }
   }
   &__text {
@@ -61,6 +53,8 @@
   &__total {
     border-top: 1px solid rgba(50, 115, 220, 0.3);
     padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
   }
 
   &__list {

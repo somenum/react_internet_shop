@@ -20,22 +20,21 @@
   &__text {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     &_price {
       font-weight: bold;
     }
   }
 
   &__button {
-    height: 30px;
-    width: 30px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
     &_icon {
-      fill: $brand-dark;
       height: 30px;
       width: 30px;
-
+      margin: 0 auto;
+      &:hover {
+        transform: scale(1.1);
+        transition: all 300ms ease;
+      }
     }
   }
 }
