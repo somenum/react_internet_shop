@@ -19,34 +19,26 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const carts = useSelector(selectCart);
   const dispatch = useDispatch();
-  const { isAuth, email } = useAuth();
+  const { isAuth } = useAuth();
   const navigate = useNavigate();
   const { theme, setTheme } = useContext(ThemeContext);
 
   const themeHandler = () => {
-    if (theme === "light") {
-      setTheme("dark");
-    } else {
-      setTheme("light");
-    }
+    const currentTheme = theme === "light" ? "dark" : "light";
+    setTheme(currentTheme);
   };
 
   const handleBuy = () => {
     dispatch(removeAll());
-    // eslint-disable-next-line no-alert
-    alert("Thanks for you order");
   };
 
   useEffect(() => {
-    if (isOpen) document.body.style.overflow = "hidden";
-    else document.body.style.overflow = "visible";
+    const overflow = isOpen ? "hidden" : "visible";
+    document.body.style.overflow = overflow;
   }, [isOpen]);
 
   const logOutHandler = () => {
-    // eslint-disable-next-line no-alert
-    if (window.confirm(`Do you really want to log out from ${email}`)) {
-      dispatch(removeUser());
-    }
+    dispatch(removeUser());
   };
 
   return (
@@ -88,7 +80,6 @@ const Header = () => {
         <li className={styles.header__list_item}>
           <Button
             className={styles.header__button}
-            type="button"
             onClick={() => setIsOpen(true)}
             buttonStyle="transparent"
           >

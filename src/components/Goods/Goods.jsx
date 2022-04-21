@@ -12,7 +12,7 @@ const Goods = () => {
   const slice = goods.slice(0, noOfElements);
 
   const loadMore = () => {
-    setNoOFElements(noOfElements + noOfElements);
+    setNoOFElements(noOfElements + 4);
   };
 
   return (
@@ -22,14 +22,16 @@ const Goods = () => {
           <GoodItem good={good} key={good.id} />
         ))}
       </div>
-      <Button
-        onClick={() => loadMore()}
-        className={styles.goods__button}
-        buttonStyle="primary"
-        type="button"
-      >
-        Load more
-      </Button>
+      {noOfElements !== goods.length && (
+        <Button
+          onClick={loadMore}
+          className={styles.goods__button}
+          buttonStyle="primary"
+          type="button"
+        >
+          Load more
+        </Button>
+      )}
     </div>
   );
 };

@@ -12,7 +12,10 @@ import ThemeProvider from "../../theme/ThemeProvider";
 const Cart = ({ open, onClose, onClick }) => {
   const carts = useSelector(selectCart);
 
-  const total = carts.reduce((acc, item) => acc + item.price, 0);
+  const total = carts.reduce(
+    (acc, item) => acc + item.price * item.cartQuantity,
+    0
+  );
   if (!open) return null;
 
   return ReactDOM.createPortal(

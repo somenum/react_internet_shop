@@ -1,8 +1,9 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import FormInput from "../FormInput/FormInput";
+import Form from "../Form/Form";
 import { setUser } from "../../app/slices/userSlice";
 
 const Register = () => {
@@ -22,9 +23,11 @@ const Register = () => {
         );
         navigate("/");
       })
-      .catch(console.error);
+      .catch((error) => {
+        toast.error(error.message);
+      });
   };
 
-  return <FormInput title="Sign up" handleClick={handleRegister} />;
+  return <Form title="Sign up" handleClick={handleRegister} />;
 };
 export default Register;

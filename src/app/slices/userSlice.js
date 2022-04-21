@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 
 const initialState = {
   email: null,
@@ -19,6 +20,7 @@ const userSlice = createSlice({
       state.email = null;
       state.token = null;
       state.id = null;
+      toast.info("You have logged out");
     },
   },
 });

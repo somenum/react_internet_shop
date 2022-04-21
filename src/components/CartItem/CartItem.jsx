@@ -9,9 +9,7 @@ const CartItem = ({ item }) => {
   const dispatch = useDispatch();
 
   const removeHandler = (i) => {
-    if (window.confirm(`Do you really want to delete ${i.name} from cart?`)) {
-      dispatch(removeFromCart(i));
-    }
+    dispatch(removeFromCart(i));
   };
 
   return (
@@ -24,9 +22,10 @@ const CartItem = ({ item }) => {
         />
         <div className={styles.cartItem__text}>
           <div>{item.name}</div>
-          <div
-            className={styles.cartItem__text_price}
-          >{`$${item.price.toLocaleString()}`}</div>
+          <div className={styles.cartItem__text_price}>
+            <span>{item.cartQuantity}x</span>
+            {` $${item.price.toLocaleString()}`}
+          </div>
         </div>
       </div>
       <div>

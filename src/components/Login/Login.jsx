@@ -1,8 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import FormInput from "../FormInput/FormInput";
+import Form from "../Form/Form";
 import { setUser } from "../../app/slices/userSlice";
 
 const Login = () => {
@@ -23,9 +24,9 @@ const Login = () => {
         navigate("/");
       })
       // eslint-disable-next-line no-alert
-      .catch(() => alert("Invalid user"));
+      .catch(() => toast.error("Invalid user"));
   };
 
-  return <FormInput title="Sign in" handleClick={handleLogin} />;
+  return <Form title="Sign in" handleClick={handleLogin} />;
 };
 export default Login;

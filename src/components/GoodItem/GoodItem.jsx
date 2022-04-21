@@ -16,8 +16,6 @@ const GoodItem = ({ good }) => {
 
   const addToCartHandler = (item) => {
     dispatch(addToCart(item));
-    // eslint-disable-next-line no-alert
-    alert(`The ${item.name} was added to cart`);
   };
 
   return (
@@ -32,7 +30,9 @@ const GoodItem = ({ good }) => {
         <div className={styles.goodItem__text}>${good.price}</div>
         <Button
           className={styles.goodItem__button}
-          onClick={isAuth ? addToCartHandler(good) : navigate("/Login")}
+          onClick={
+            isAuth ? () => addToCartHandler(good) : () => navigate("/Login")
+          }
           type="button"
           buttonStyle="transparent"
         >
