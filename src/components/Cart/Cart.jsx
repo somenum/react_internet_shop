@@ -53,7 +53,7 @@ const Cart = ({ open, onClose, onClick }) => {
             </span>
             <Button
               className={styles.cart__total_button}
-              onClick={() => onClick()}
+              onClick={onClick}
               buttonStyle="primary"
             >
               Оформити

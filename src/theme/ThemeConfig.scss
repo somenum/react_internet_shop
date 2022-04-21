@@ -1,15 +1,15 @@
 @import "../_helpers/variables";
 
 $themes: (
-        light: (
-                bg: white,
-                text: $brand-dark,
-                fill: $brand-dark,
-                box-shadow: $brand-shadow
-        ),
-        dark: (
-                bg: $brand-dark,
-                text: white !important,
-                fill: white,
-        ),
+  light: (
+    bg: white,
+    text: $brand-dark,
+    fill: $brand-dark,
+    box-shadow: $brand-shadow,
+  ),
+  dark: (
+    bg: $brand-dark,
+    text: white !important,
+    fill: white,
+  ),
 );

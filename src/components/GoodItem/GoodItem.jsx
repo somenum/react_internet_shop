@@ -32,9 +32,7 @@ const GoodItem = ({ good }) => {
         <div className={styles.goodItem__text}>${good.price}</div>
         <Button
           className={styles.goodItem__button}
-          onClick={
-            isAuth ? () => addToCartHandler(good) : () => navigate("/Login")
-          }
+          onClick={isAuth ? addToCartHandler(good) : navigate("/Login")}
           type="button"
           buttonStyle="transparent"
         >
