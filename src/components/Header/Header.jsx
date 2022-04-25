@@ -70,11 +70,8 @@ const Header = () => {
             type="button"
             buttonStyle="transparent"
           >
-            {isAuth ? (
-              <LogOutIcon className={styles.header__button_icon} />
-            ) : (
-              <UserIcon className={styles.header__button_icon} />
-            )}
+            {isAuth && <LogOutIcon className={styles.header__button_icon} />}
+            {!isAuth && <UserIcon className={styles.header__button_icon} />}
           </Button>
         </li>
         <li className={styles.header__list_item}>
